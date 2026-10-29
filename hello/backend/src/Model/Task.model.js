@@ -2,12 +2,13 @@ import mongoose from 'mongoose';
 
 const taskSchema = new mongoose.Schema({
     title: {
-        type: String,    
-        required: true
+        type: String,
+        required: true,
+        trim: true
     },
     description: {
         type: String,
-        required: true  
+        default: ''
     },
     completed: {
         type: Boolean,
@@ -16,7 +17,7 @@ const taskSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        required: false
     },
     priority: {
         type: String,
